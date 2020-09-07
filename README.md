@@ -1,4 +1,4 @@
-# Elevator Control System
+# Ten Point Five
 
 > 此项目为东南大学信息科学与工程学院2019级C++暑期学校的MFC项目 
 
