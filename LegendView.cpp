@@ -61,7 +61,7 @@ void CMyLegendView::OnDraw(CDC* pDC)
 	ASSERT_VALID(pDoc);
 	// TODO: add draw code for native data here
 
-	//½«Î»Í¼¼ÓÔØµ½³ÌĞòÖĞ£¬³õÊ¼»¯¸÷¸öCDC
+	//å°†ä½å›¾åŠ è½½åˆ°ç¨‹åºä¸­ï¼Œåˆå§‹åŒ–å„ä¸ªCDC
 	static BOOL Loaded=false;
 	if(Loaded==false)
 	{
@@ -132,16 +132,16 @@ void CMyLegendView::OnLButtonDown(UINT nFlags, CPoint point)
 {
 	// TODO: Add your message handler code here and/or call default
 
-	//·Ö±ğÁíÍâ¶¨Òåx,y,ÒÔ±ãÔÚÌáÈ¡ÀûÓÃ´«½øÀ´µÄ×ø±êµÄÍ¬Ê±±ÜÃâ·¢Éú¶ÔÔ­Êı¾İ½øĞĞ²»±ØÒªµÄĞŞ¸Ä
+	//åˆ†åˆ«å¦å¤–å®šä¹‰x,y,ä»¥ä¾¿åœ¨æå–åˆ©ç”¨ä¼ è¿›æ¥çš„åæ ‡çš„åŒæ—¶é¿å…å‘ç”Ÿå¯¹åŸæ•°æ®è¿›è¡Œä¸å¿…è¦çš„ä¿®æ”¹
 	int x=point.x;
 	int y=point.y;
-	if(x>=358&&x<=544&&y>=327&&y<=371)    //ÓÎÏ·¿ªÊ¼
+	if(x>=358&&x<=544&&y>=327&&y<=371)    //æ¸¸æˆå¼€å§‹
 	{
 		CDC *pDC=GetDC();
 		m_playingback.LoadBitmap(IDB_P1);
 		PLAYINGBACK.CreateCompatibleDC(pDC);
 		PLAYINGBACK.SelectObject(m_playingback);
-		LOOP:pDC->BitBlt(0, 0, 857, 580, &PLAYINGBACK, 0, 0, SRCCOPY);//¿ªÊ¼ºó»»±³¾°
+		LOOP:pDC->BitBlt(0, 0, 857, 580, &PLAYINGBACK, 0, 0, SRCCOPY);//å¼€å§‹åæ¢èƒŒæ™¯
 		CPeople p(0);
 		p.DoModal();               //
 		manager.Player=p.Player;
@@ -153,7 +153,7 @@ void CMyLegendView::OnLButtonDown(UINT nFlags, CPoint point)
 		}
 		manager.GameStart();
 		CardShow();
-	//·¢ÅÆ£¬
+	//å‘ç‰Œï¼Œ
 		while(manager.count<=52){
 			if(manager.Deal()==1){
 				goto LOOP;
@@ -166,20 +166,20 @@ void CMyLegendView::OnLButtonDown(UINT nFlags, CPoint point)
 		}
 	}
 	if(x>=358&&x<=544&&y>=400&&y<=448)   
-		MessageBox("ÅÆ²»·Ö»¨É«£¬Ö»°´µãÊı¼Æ·Ö£¬1¡«9°´ÅÆµã¼Æ£¬ÆäËü°´0.5µã¼Æ¡£ÈôµãÊıÖ®ºÍ³¬¹ı10.5£¬¼Æ0·Ö£»ÕıºÃ10.5£¬¼Æ3·Ö£»µ±Íæ¼ÒÒª5ÕÅÅÆ£¬ÇÒ5ÕÅ¾ùÎª0.5µãÊ±£¬¼Æ5·Ö£»ÈôË«·½¾ù²»×ã10.5£¬Ôò½Ó½ü10.5µÄ¼Æ2·Ö£¬ÁíÒ»·½¼Æ1·Ö£»ÈôË«·½¾ù²»×ã10.5£¬ÇÒµãÊıÏàÍ¬£¬ÔòË«·½¾ù¼Æ0.5£»ÈôÖ»ÓĞÒ»·½²»×ã10.5£¬Ôò¸ù¾İ¶Ô·½µÃ·ÖÁ½ÖÖÇé¿ö£¬Èô¶Ô·½µÃ·Ö>=3£¬Ôò¼Æ1·Ö£¬·ñÔò¼Æ2·Ö¡£");//ÓÎÏ·¹æÔòËµÃ÷	
+		MessageBox("ç‰Œä¸åˆ†èŠ±è‰²ï¼ŒåªæŒ‰ç‚¹æ•°è®¡åˆ†ï¼Œ1ï½9æŒ‰ç‰Œç‚¹è®¡ï¼Œå…¶å®ƒæŒ‰0.5ç‚¹è®¡ã€‚è‹¥ç‚¹æ•°ä¹‹å’Œè¶…è¿‡10.5ï¼Œè®¡0åˆ†ï¼›æ­£å¥½10.5ï¼Œè®¡3åˆ†ï¼›å½“ç©å®¶è¦5å¼ ç‰Œï¼Œä¸”5å¼ å‡ä¸º0.5ç‚¹æ—¶ï¼Œè®¡5åˆ†ï¼›è‹¥åŒæ–¹å‡ä¸è¶³10.5ï¼Œåˆ™æ¥è¿‘10.5çš„è®¡2åˆ†ï¼Œå¦ä¸€æ–¹è®¡1åˆ†ï¼›è‹¥åŒæ–¹å‡ä¸è¶³10.5ï¼Œä¸”ç‚¹æ•°ç›¸åŒï¼Œåˆ™åŒæ–¹å‡è®¡0.5ï¼›è‹¥åªæœ‰ä¸€æ–¹ä¸è¶³10.5ï¼Œåˆ™æ ¹æ®å¯¹æ–¹å¾—åˆ†ä¸¤ç§æƒ…å†µï¼Œè‹¥å¯¹æ–¹å¾—åˆ†>=3ï¼Œåˆ™è®¡1åˆ†ï¼Œå¦åˆ™è®¡2åˆ†ã€‚");//æ¸¸æˆè§„åˆ™è¯´æ˜	
 	CView::OnLButtonDown(nFlags, point);
 }
 
 void CMyLegendView::OnMouseMove(UINT nFlags, CPoint point) 
 {
 	// TODO: Add your message handler code here and/or call default
-	//¸ú×Ù¹â±êÊó±ê
+	//è·Ÿè¸ªå…‰æ ‡é¼ æ ‡
 	int mx=point.x;
 	int my=point.y;
 
 	CString st;
 	CDC *pDC=GetDC();
-	st.Format("%d,%d", point.x, point.y);
+	st.Format("%.3d,%.3d", point.x, point.y);
 	pDC->TextOut(400, 5, st);
 	ReleaseDC(pDC);
 
@@ -194,42 +194,42 @@ void CMyLegendView::RankShow(){
 		temp.Format(_T("%.1lf"),manager.play[i].Power); 
 		switch(manager.play[i].add)
 		{
-		case 0:{pDC->TextOut(350, 200+60*i, "Íæ¼ÒÒ»£º");break;}
-		case 1:{pDC->TextOut(350, 200+60*i, "Íæ¼Ò¶ş£º");break;}
-		case 2:{pDC->TextOut(350, 200+60*i, "Íæ¼ÒÈı£º");break;}
-		case 3:{pDC->TextOut(350, 200+60*i, "Íæ¼ÒËÄ£º");break;}
+		case 0:{pDC->TextOut(350, 200+60*i, "ç©å®¶ä¸€ï¼š");break;}
+		case 1:{pDC->TextOut(350, 200+60*i, "ç©å®¶äºŒï¼š");break;}
+		case 2:{pDC->TextOut(350, 200+60*i, "ç©å®¶ä¸‰ï¼š");break;}
+		case 3:{pDC->TextOut(350, 200+60*i, "ç©å®¶å››ï¼š");break;}
 		}
-		pDC->TextOut(400, 200+60*i, manager.play[i].name+"µÃ·Ö:"+temp);
+		pDC->TextOut(400, 200+60*i, manager.play[i].name+"å¾—åˆ†:"+temp);
 		temp.Format(_T("%.d"),manager.play[i].rank);
-		pDC->TextOut(400, 220+60*i, "ÅÅÃû:"+temp);
+		pDC->TextOut(400, 220+60*i, "æ’å:"+temp);
 		int ctemp;
 		ctemp=52-manager.count;
 		temp.Format(_T("%.2d"),ctemp);
-		pDC->TextOut(340,180,"ÅÆ¿âÊ£ÓàÊıÁ¿Îª£º"+temp);
+		pDC->TextOut(340,180,"ç‰Œåº“å‰©ä½™æ•°é‡ä¸ºï¼š"+temp);
 		ReleaseDC(pDC);
 	}
 	/*CDC *pDC=GetDC();
 	CString temp;
 	temp.Format(_T("%.1lf"),manager.play[0].Power); 
-	pDC->TextOut(630, 100, manager.play[0].name+"µÃ·Ö:"+temp);
+	pDC->TextOut(630, 100, manager.play[0].name+"å¾—åˆ†:"+temp);
 	temp.Format(_T("%.d"),manager.play[0].rank);
-	pDC->TextOut(630, 150, "ÅÅÃû:"+temp);
+	pDC->TextOut(630, 150, "æ’å:"+temp);
 	ReleaseDC(pDC);
 	
 	CDC *pD=GetDC();
 	temp.Format(_T("%.1lf"),manager.play[1].Power); 
-	pD->TextOut(630, 211, manager.play[1].name+"µÃ·Ö:"+temp);
+	pD->TextOut(630, 211, manager.play[1].name+"å¾—åˆ†:"+temp);
 	temp.Format(_T("%.d"), manager.play[1].rank);
-	pD->TextOut(630, 261, "ÅÅÃû:"+temp);
+	pD->TextOut(630, 261, "æ’å:"+temp);
 	ReleaseDC(pD);
 
 	if(manager.Player>=3)
 	{
 		CDC *pDC=GetDC();
 		temp.Format(_T("%.1lf"),manager.play[2].Power); 
-		pDC->TextOut(630, 322, manager.play[2].name+"µÃ·Ö:"+temp);
+		pDC->TextOut(630, 322, manager.play[2].name+"å¾—åˆ†:"+temp);
 		temp.Format(_T("%.d"),manager.play[2].rank);
-		pDC->TextOut(630, 372, "ÅÅÃû:"+temp);
+		pDC->TextOut(630, 372, "æ’å:"+temp);
 		ReleaseDC(pDC);
 		if(manager.Player==4)
 		{
@@ -237,29 +237,29 @@ void CMyLegendView::RankShow(){
 			CString sa4;
 			CDC *pDC=GetDC();
 			temp.Format(_T("%.1lf"),manager.play[3].Power); 
-			pDC->TextOut(630, 433, manager.play[3].name+"µÃ·Ö:"+temp);
+			pDC->TextOut(630, 433, manager.play[3].name+"å¾—åˆ†:"+temp);
 			temp.Format(_T("%.d"),manager.play[3].rank);
-			pDC->TextOut(630, 483, "ÅÅÃû:"+temp);
+			pDC->TextOut(630, 483, "æ’å:"+temp);
 			ReleaseDC(pDC);
 		}
 		
 	}*/
 }
 	void CMyLegendView::CardShow(){
-		int m=60,n=80;//ÅÆµÄ´óĞ¡
-		int i=70,j=70;//³õÊ¼£ºµÚÒ»¸öÍæ¼ÒµÄµÚÒ»ÕÅÅÆµÄÎ»ÖÃ
-		for(int q=0; q<2; q++)//ËÄ¸öÍæ¼Ò
+		int m=60,n=80;//ç‰Œçš„å¤§å°
+		int i=70,j=70;//åˆå§‹ï¼šç¬¬ä¸€ä¸ªç©å®¶çš„ç¬¬ä¸€å¼ ç‰Œçš„ä½ç½®
+		for(int q=0; q<2; q++)//å››ä¸ªç©å®¶
 		{
 			j=70;
 			switch(q)
 			{
-			case 0:{CDC *pDC=GetDC();pDC->TextOut(150, 180, "Íæ¼ÒÒ»£º");CBitmap m_pic1;CDC P1;m_pic1.LoadBitmap(IDB_P2);P1.CreateCompatibleDC(pDC);P1.SelectObject(m_pic1);pDC->BitBlt(150,200,80,80,&P1,0,0,SRCCOPY);break;}
-			case 1:{CDC *pDC=GetDC();pDC->TextOut(620, 180, "Íæ¼Ò¶ş£º");CBitmap m_pic2;CDC P2;m_pic2.LoadBitmap(IDB_P3);P2.CreateCompatibleDC(pDC);P2.SelectObject(m_pic2);pDC->BitBlt(620,200,80,80,&P2,0,0,SRCCOPY);break;}
+			case 0:{CDC *pDC=GetDC();pDC->TextOut(150, 180, "ç©å®¶ä¸€ï¼š");CBitmap m_pic1;CDC P1;m_pic1.LoadBitmap(IDB_P2);P1.CreateCompatibleDC(pDC);P1.SelectObject(m_pic1);pDC->BitBlt(150,200,80,80,&P1,0,0,SRCCOPY);break;}
+			case 1:{CDC *pDC=GetDC();pDC->TextOut(620, 180, "ç©å®¶äºŒï¼š");CBitmap m_pic2;CDC P2;m_pic2.LoadBitmap(IDB_P3);P2.CreateCompatibleDC(pDC);P2.SelectObject(m_pic2);pDC->BitBlt(620,200,80,80,&P2,0,0,SRCCOPY);break;}
 			}
 			for(int p=0; p<5; p++) 
 			{ 
-				CDC *pDC=GetDC();//Íæ¼ÒµÄÎåÕÅÅÆ
-				switch(manager.play[q].a[p].Suit){ //Íæ¼ÒqµÄµÚpÕÅÅÆ »¨É«Îªsuit
+				CDC *pDC=GetDC();//ç©å®¶çš„äº”å¼ ç‰Œ
+				switch(manager.play[q].a[p].Suit){ //ç©å®¶qçš„ç¬¬på¼ ç‰Œ èŠ±è‰²ä¸ºsuit
 					case 2: {
 						switch (manager.play[q].a[p].Number) {
 							case 'A': 
@@ -499,21 +499,21 @@ void CMyLegendView::RankShow(){
 			i+=667;
 		}
 
-		if(manager.Player>2)//Èç¹ûÍæ¼Ò¸öÊı´óÓÚ¶ş
+		if(manager.Player>2)//å¦‚æœç©å®¶ä¸ªæ•°å¤§äºäºŒ
 		{
 			i=179;j=30;
-			for(int q=2; q<manager.Player; q++)//ºóÁ½¸öÍæ¼Ò
+			for(int q=2; q<manager.Player; q++)//åä¸¤ä¸ªç©å®¶
 			{
 			i=179;
 			switch(q)
 			{
-			case 2:{CDC *pDC=GetDC();pDC->TextOut(200, 130, "Íæ¼ÒÈı£º");CBitmap m_pic3;CDC P3;m_pic3.LoadBitmap(IDB_P4);P3.CreateCompatibleDC(pDC);P3.SelectObject(m_pic3);pDC->BitBlt(250,110,80,80,&P3,0,0,SRCCOPY);break;}
-			case 3:{CDC *pDC=GetDC();pDC->TextOut(505, 360, "Íæ¼ÒËÄ£º");CBitmap m_pic4;CDC P4;m_pic4.LoadBitmap(IDB_P5);P4.CreateCompatibleDC(pDC);P4.SelectObject(m_pic4);pDC->BitBlt(560,360,80,80,&P4,0,0,SRCCOPY);break;}
+			case 2:{CDC *pDC=GetDC();pDC->TextOut(200, 130, "ç©å®¶ä¸‰ï¼š");CBitmap m_pic3;CDC P3;m_pic3.LoadBitmap(IDB_P4);P3.CreateCompatibleDC(pDC);P3.SelectObject(m_pic3);pDC->BitBlt(250,110,80,80,&P3,0,0,SRCCOPY);break;}
+			case 3:{CDC *pDC=GetDC();pDC->TextOut(505, 360, "ç©å®¶å››ï¼š");CBitmap m_pic4;CDC P4;m_pic4.LoadBitmap(IDB_P5);P4.CreateCompatibleDC(pDC);P4.SelectObject(m_pic4);pDC->BitBlt(560,360,80,80,&P4,0,0,SRCCOPY);break;}
 			}
 			for(int p=0; p<5; p++) 
 			{ 
-				CDC *pDC=GetDC();//Íæ¼ÒµÄÎåÕÅÅÆ
-				switch(manager.play[q].a[p].Suit){ //Íæ¼ÒqµÄµÚpÕÅÅÆ »¨É«Îªsuit
+				CDC *pDC=GetDC();//ç©å®¶çš„äº”å¼ ç‰Œ
+				switch(manager.play[q].a[p].Suit){ //ç©å®¶qçš„ç¬¬på¼ ç‰Œ èŠ±è‰²ä¸ºsuit
 					case 2: {
 						switch (manager.play[q].a[p].Number) {
 							case 'A': 
