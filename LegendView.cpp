@@ -179,7 +179,7 @@ void CMyLegendView::OnMouseMove(UINT nFlags, CPoint point)
 
 	CString st;
 	CDC *pDC=GetDC();
-	st.Format("%.3d,%.3d", point.x, point.y);
+	st.Format("%.3d,%.3d", point.x, point.y); 
 	pDC->TextOut(400, 5, st);
 	ReleaseDC(pDC);
 
